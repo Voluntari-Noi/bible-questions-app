@@ -60,29 +60,32 @@
         </div>
         <div class="row">
           <div class="col">
-            <p class="info-text"> Fiecare întrebare este urmată de patru variante de răspuns, dintre care doar una este corectă.</p>
-            <p id="question"> Care este prima întrebare din Biblie?</p>
+            <div class="question">
+              <p class="info-text"> Fiecare întrebare este urmată de patru variante de răspuns, dintre care doar una este corectă.</p>
+              <p id="question-text"> Care este prima întrebare din Biblie?</p>
 
-            <!--Răspuns corect: Oare a zis Dumnezeu...?
-            Răspuns greșit (1): Unde eşti?
-            Răspuns greșit (2): Cine ţi-a spus că eşti gol?
-            Răspuns greșit (3): Ce ai făcut?
-            Referință: Genesa 3:1: Şarpele era mai şiret decât toate fiarele câmpului pe care le făcuse Domnul Dumnezeu. El a zis femeii: "Oare a zis Dumnezeu cu adevărat: "Să nu mâncaţi din toţi pomii din grădină"?" -->
+              <!--Răspuns corect: Oare a zis Dumnezeu...?
+              Răspuns greșit (1): Unde eşti?
+              Răspuns greșit (2): Cine ţi-a spus că eşti gol?
+              Răspuns greșit (3): Ce ai făcut?
+              Referință: Genesa 3:1: Şarpele era mai şiret decât toate fiarele câmpului pe care le făcuse Domnul Dumnezeu. El a zis femeii: "Oare a zis Dumnezeu cu adevărat: "Să nu mâncaţi din toţi pomii din grădină"?" -->
 
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="answer correct list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="A">A. Oare a zis Dumnezeu...?</a>
-              <a class="answer list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="B">B. Unde eşti?</a>
-              <a class="answer list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="C">C. Cine ţi-a spus că eşti gol?</a>
-              <a class="answer list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="D">D. Ce ai făcut?</a>
+              <div class="list-group" id="list-tab" role="tablist">
+                <a class="answer answer_a correct list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="A">A. Oare a zis Dumnezeu...?</a>
+                <a class="answer answer_b list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="B">B. Unde eşti?</a>
+                <a class="answer answer_c list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="C">C. Cine ţi-a spus că eşti gol?</a>
+                <a class="answer answer_d list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="D">D. Ce ai făcut?</a>
 
+              </div>
             </div>
+
           </div>
         </div>
 
         <div class="row">
           <div class="col">
             <div class="app-controls">
-              <button type="button" class="btn btn-outline-secondary">RĂSPUNDE MAI TÂRZIU
+              <button type="button" class="btn btn-outline-secondary" id="reload-question">RĂSPUNDE MAI TÂRZIU
               </button>
               <button type="button" class="btn btn-outline-primary float-right" id="submit-answer">TRIMITE RĂSPUNSUL
               </button>
@@ -109,15 +112,36 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript">
       $("document").ready(function() {
+        function next_question() {
+          // choose next question
+          $("p#question-text").text("Câți ani a trăit Metusala?");
+          $("a.answer_a").text("A. 966");
+          $("a.answer_b").text("B. 696");
+          $("a.answer_c").text("C. 996");
+          $("a.answer_d").text("D. 969");
+          $("a.answer_a").removeClass("correct");
+          $("a.answer_d").addClass("correct");
+        }
+
         $("button#submit-answer").on("click", function() {
           var selected_button = $("a.active");
           var is_correct = $(selected_button[0]).hasClass("correct");
           if (is_correct) {
             Swal.fire("🎉 Felicitări! ", "Ai răspuns corect.");
+            if ($("a.answer_a").text() == "A. 966") {
+              $("div.question").html("<p class='text-center'>Ai finalizat <b>toate</b> întrebările. Această aplicație este doar demonstrativă.</p>");
+              $("button#submit-answer").hide();
+              $("button#reload-question").hide();
+
+            }
+            next_question();
           } else {
             Swal.fire("Ai greșit!❌", "Încearcă din nou.");
           }
+        });
 
+        $("button#reload-question").on("click", function() {
+          next_question();
         });
       });
 
