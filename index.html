@@ -1,43 +1,115 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Întrebări biblice - Pentru Cer</title>
-</head>
-<body style="background-color:powderblue;">
-<body>
-    <h1 style="background-color:LightGray;">Întrebări biblice</h1>
-    <p style="color:blue;"><i> Alege pentru fiecare întrebare răspunsul corect.</i></p>
-    <p><b>Care este prima întrebare din Biblie?</b></p>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <form>
-  <input type="radio" id="A" name="raspuns" value="A. Oare a zis Dumnezeu...?" background-color: Green>
-  <label for="A">A. Oare a zis Dumnezeu...?</label><br>
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Întrebări Biblice - Pentru Cer</title>
+  </head>
+
+  <body>
+    <section class="header container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <section class="application">
+      <div class="container app-container">
+        <div class="row">
+          <div class="col">
+            <h1 class="app-title">
+              <i class="fas fa-question-circle"></i>
+              Întrebări biblice
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p style="color:blue;"><i> Alege pentru fiecare întrebare răspunsul corect.</i></p>
+            <p><b>Care este prima întrebare din Biblie?</b></p>
+
+            <form>
+              <input type="radio" id="A" name="raspuns" value="A. Oare a zis Dumnezeu...?" background-color: Green>
+              <label for="A">A. Oare a zis Dumnezeu...?</label><br>
 
 
-  <input type="radio" id="B. Unde eşti?" name="raspuns" value="female">
-  <label for="B">B. Unde eşti?</label><br>
+              <input type="radio" id="B. Unde eşti?" name="raspuns" value="female">
+              <label for="B">B. Unde eşti?</label><br>
 
-   <input type="radio" id="C" name="raspuns" value="C. Cine ţi-a spus că eşti gol?">
-  <label for="C">C. Cine ţi-a spus că eşti gol?</label><br>
+              <input type="radio" id="C" name="raspuns" value="C. Cine ţi-a spus că eşti gol?">
+              <label for="C">C. Cine ţi-a spus că eşti gol?</label><br>
 
-  <input type="radio" id="D" name="raspuns" value="D. Ce ai făcut?">
-  <label for="D">D. Ce ai făcut?</label>
+              <input type="radio" id="D" name="raspuns" value="D. Ce ai făcut?">
+              <label for="D">D. Ce ai făcut?</label>
 
-</form>
+            </form>
 
-      <!--<p style="color:green; background-color:LightGreen"> A. Oare a zis Dumnezeu...?</p>
-    <p style="color:red; background-color:LightPink"> B. Unde eşti?</p>
-    <p style="color:red; background-color:LightPink"> C. Cine ţi-a spus că eşti gol?</p>
-    <p style="color:red; background-color:LightPink"> D. Ce ai făcut?</p>-->
+            <!--<p style="color:green; background-color:LightGreen"> A. Oare a zis Dumnezeu...?</p>
+            <p style="color:red; background-color:LightPink"> B. Unde eşti?</p>
+            <p style="color:red; background-color:LightPink"> C. Cine ţi-a spus că eşti gol?</p>
+            <p style="color:red; background-color:LightPink"> D. Ce ai făcut?</p>-->
 
-    <!--Răspuns corect: Oare a zis Dumnezeu...?
-    Răspuns greșit (1): Unde eşti?
-    Răspuns greșit (2): Cine ţi-a spus că eşti gol?
-    Răspuns greșit (3): Ce ai făcut?
-    Referință: Genesa 3:1: Şarpele era mai şiret decât toate fiarele câmpului pe care le făcuse Domnul Dumnezeu. El a zis femeii: "Oare a zis Dumnezeu cu adevărat: "Să nu mâncaţi din toţi pomii din grădină"?" -->
+            <!--Răspuns corect: Oare a zis Dumnezeu...?
+            Răspuns greșit (1): Unde eşti?
+            Răspuns greșit (2): Cine ţi-a spus că eşti gol?
+            Răspuns greșit (3): Ce ai făcut?
+            Referință: Genesa 3:1: Şarpele era mai şiret decât toate fiarele câmpului pe care le făcuse Domnul Dumnezeu. El a zis femeii: "Oare a zis Dumnezeu cu adevărat: "Să nu mâncaţi din toţi pomii din grădină"?" -->
+            <!-- Content here -->
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p style="color:blue;">Pentru mai multe aplicații educaționale te așteptăm aici: <a href="https://www.pentrucer.net">www.pentrucer.net</a> </p>
-
-
-</body>
+    <section class="footer container">
+      <div class="info">
+        <p class="text-center">Pentru mai multe aplicații educaționale te așteptăm aici: <a href="http://pentrucer.net/">pentrucer.net</a>. Te mai așteptăm.</p>
+      </div>
+      <div class="logo">
+        <a href="https://www.pentrucer.net">
+          <img src="images/logo-pentru-cer.png" alt="Pentru Cer" />
+        </a>
+      </div>
+    </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
