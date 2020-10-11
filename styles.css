@@ -10,7 +10,7 @@ div.app-container {
   padding: 20px;
 }
 
-div.app-container a, section.footer a {
+section.footer a {
   color: #00aeef;
 }
 
