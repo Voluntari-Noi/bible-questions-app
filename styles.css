@@ -19,6 +19,7 @@ h1.app-title {
   text-align: center;
   font-family: 'Noto Serif', serif;
   font-weight: 700;
+  margin-bottom: 30px;
 }
 
 section.footer {
@@ -29,4 +30,19 @@ section.footer {
 section.footer div.logo img {
   width: 150px;
   height: auto;
+}
+
+div.app-controls {
+  margin-top: 20px;
+}
+
+p#question {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p.info-text {
+  font-size: 16px;
+  font-style: italic;
+  font-color: #111111;
 }
