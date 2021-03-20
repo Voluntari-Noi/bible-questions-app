@@ -112,13 +112,26 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript">
       $("document").ready(function() {
+        window.questions = [
+          {
+            'id': 1,
+            'text': "TEST Câți ani a trăit Metusala?",
+            'answer_a': 966,
+            'answer_b': 696,
+            'answer_c': 996,
+            'answer_d': 969,
+          }
+        ];
+
         function next_question() {
           // choose next question
-          $("p#question-text").text("Câți ani a trăit Metusala?");
-          $("a.answer_a").text("A. 966");
-          $("a.answer_b").text("B. 696");
-          $("a.answer_c").text("C. 996");
-          $("a.answer_d").text("D. 969");
+          var question = window.questions[0];
+
+          $("p#question-text").text(question.text);
+          $("a.answer_a").text(question.answer_a);
+          $("a.answer_b").text(question.answer_b);
+          $("a.answer_c").text(question.answer_c);
+          $("a.answer_d").text(question.answer_d);
           $("a.answer_a").removeClass("correct");
           $("a.answer_d").addClass("correct");
         }
