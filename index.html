@@ -62,20 +62,12 @@
           <div class="col">
             <div class="question">
               <p class="info-text"> Fiecare întrebare este urmată de patru variante de răspuns, dintre care doar una este corectă.</p>
-              <p id="question-text"> Care este prima întrebare din Biblie?</p>
-
-              <!--Răspuns corect: Oare a zis Dumnezeu...?
-              Răspuns greșit (1): Unde eşti?
-              Răspuns greșit (2): Cine ţi-a spus că eşti gol?
-              Răspuns greșit (3): Ce ai făcut?
-              Referință: Genesa 3:1: Şarpele era mai şiret decât toate fiarele câmpului pe care le făcuse Domnul Dumnezeu. El a zis femeii: "Oare a zis Dumnezeu cu adevărat: "Să nu mâncaţi din toţi pomii din grădină"?" -->
-
+              <p id="question-text"></p>
               <div class="list-group" id="list-tab" role="tablist">
-                <a class="answer answer_a correct list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="A">A. Oare a zis Dumnezeu...?</a>
-                <a class="answer answer_b list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="B">B. Unde eşti?</a>
-                <a class="answer answer_c list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="C">C. Cine ţi-a spus că eşti gol?</a>
-                <a class="answer answer_d list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="D">D. Ce ai făcut?</a>
-
+                <a class="answer answer_a list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="A"></a>
+                <a class="answer answer_b list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="B"></a>
+                <a class="answer answer_c list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="C"></a>
+                <a class="answer answer_d list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="D"></a>
               </div>
             </div>
 
@@ -115,6 +107,14 @@
         window.questions = [
           {
             'id': 1,
+            'text': "Care este prima întrebare din Biblie?",
+            'answer_a': "Oare a zis Dumnezeu...?",
+            'answer_b': "Unde ești?",
+            'answer_c': "Cine ți-a spus că ești gol?",
+            'answer_d': "Ce ai făcut?",
+          },
+          {
+            'id': 2,
             'text': "TEST Câți ani a trăit Metusala?",
             'answer_a': 966,
             'answer_b': 696,
