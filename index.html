@@ -140,8 +140,8 @@
           $("a.answer_b").text(question.answer_b);
           $("a.answer_c").text(question.answer_c);
           $("a.answer_d").text(question.answer_d);
-          $("a.answer_a").removeClass("correct");
-          $("a.answer_d").addClass("correct");
+          $("a.answer").removeClass("correct");
+          $("a." + question.correct_answer).addClass("correct");
         }
 
         $("button#submit-answer").on("click", function() {
@@ -149,12 +149,6 @@
           var is_correct = $(selected_button[0]).hasClass("correct");
           if (is_correct) {
             Swal.fire("🎉 Felicitări! ", "Ai răspuns corect.");
-            if ($("a.answer_a").text() == "A. 966") {
-              $("div.question").html("<p class='text-center'>Ai finalizat <b>toate</b> întrebările. Această aplicație este doar demonstrativă.</p>");
-              $("button#submit-answer").hide();
-              $("button#reload-question").hide();
-
-            }
             next_question();
           } else {
             Swal.fire("Ai greșit!❌", "Încearcă din nou.");
