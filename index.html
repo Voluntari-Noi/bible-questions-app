@@ -104,6 +104,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript">
       $("document").ready(function() {
+        window.current_question = 0;
+
         window.questions = [
           {
             'id': 1,
@@ -112,20 +114,26 @@
             'answer_b': "Unde ești?",
             'answer_c': "Cine ți-a spus că ești gol?",
             'answer_d': "Ce ai făcut?",
+            'correct_answer': 'answer_a'
           },
           {
             'id': 2,
-            'text': "TEST Câți ani a trăit Metusala?",
+            'text': "Câți ani a trăit Metusala?",
             'answer_a': 966,
             'answer_b': 696,
             'answer_c': 996,
             'answer_d': 969,
+            'correct_answer': 'answer_d'
           }
         ];
 
         function next_question() {
           // choose next question
-          var question = window.questions[0];
+          var question = window.questions[window.current_question];
+          window.current_question += 1;
+          if (window.questions.length <= window.current_question) {
+            window.current_question = 0;
+          }
 
           $("p#question-text").text(question.text);
           $("a.answer_a").text(question.answer_a);
