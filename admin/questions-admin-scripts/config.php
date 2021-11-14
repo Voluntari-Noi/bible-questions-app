@@ -11,4 +11,6 @@
 
   global $db_password;
   $db_password = "strongPASSWORD#99";
+
+  global $conn;
 ?>

@@ -12,6 +12,7 @@
   ];
 
   db_connect();
+  db_close();
 
   if(isset($_GET['secret'])) {
     if($_GET['secret'] == $secret) {
