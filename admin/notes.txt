@@ -73,3 +73,22 @@ mysql> FLUSH PRIVILEGES;
 
 Fatal error: Call to undefined function mysqli_connect()
 $ sudo apt install php-mysqli
+
+mysql> USE db_bible_questions;
+
+mysql>
+CREATE TABLE IF NOT EXISTS questions (
+    id int(5) NOT NULL AUTO_INCREMENT,
+    question_text varchar(1000) DEFAULT NULL,
+    correct_answer varchar(1000) DEFAULT NULL,
+    incorrect_answer_1 varchar(1000) DEFAULT NULL,
+    incorrect_answer_2 varchar(1000) DEFAULT NULL,
+    incorrect_answer_3 varchar(1000) DEFAULT NULL,
+    source varchar(1000) DEFAULT NULL,
+    PRIMARY KEY(id)
+    );
+
+To delete the table:
+mysql> DROP TABLE questions;
+
+
