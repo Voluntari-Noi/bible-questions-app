@@ -18,7 +18,25 @@ $(document).ready(function() {
     }
   }
 
-  $("div.questions-list").append("<p>Lista de întrebări</p>");
+  function update_questions_list() {
+    var jqxhr = $.getJSON("http://localhost/questions-admin-scripts/get_questions.php", function() {
+      console.log( "success" );
+    })
+    .done(function() {
+      console.log( "second success" );
+    })
+    .fail(function() {
+      console.log( "error" );
+    })
+    .always(function() {
+      console.log( "complete" );
+    });
+  }
+
+  function init() {
+    $("div.questions-list").append("<p>Lista de întrebări</p>");
+    update_questions_list();
+  }
 
   $("#questions-form" ).submit(function(event) {
     // On form submit
@@ -29,4 +47,7 @@ $(document).ready(function() {
 
     event.preventDefault();
   });
+
+  // On page load
+  init();
 });
