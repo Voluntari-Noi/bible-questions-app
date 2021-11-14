@@ -3,20 +3,19 @@
   require_once('config.php');
   require_once('functions.php');
 
-  $questions  = [
-    array("Q1", "AC1", "I11", "I21", "I31"),
-    array("Q2", "AC2", "I21", "I22", "I32"),
-    array("Q3", "AC3", "I31", "I23", "I33"),
-    array("Q4", "AC4", "I41", "I24", "I34"),
-    array("Q5", "AC5", "I51", "I25", "I35"),
-  ];
-
-  db_connect();
-  db_close();
-
   if(isset($_GET['secret'])) {
     if($_GET['secret'] == $secret) {
-      $response = $questions;
+      db_connect();
+      $sql ="SELECT * from questions ORDER BY id DESC";
+      $result = $conn -> query($sql);
+      db_close();
+
+      $questions = mysqli_fetch_assoc($result);
+
+      while($r = mysqli_fetch_assoc($result)) {
+        $rows[] = $r;
+      }
+      $response = $rows;
     } else {
       $response = "ERROR_INVALID";
     }

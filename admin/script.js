@@ -45,16 +45,20 @@ $(document).ready(function() {
         for (item in questions) {
           console.log(questions[item]);
           var question = questions[item];
-          var text = question[0];
-          var correct = question[1];
-          var incorrect_1 = question[2];
-          var incorrect_2 = question[3];
-          var incorrect_3 = question[4];
-          $("div.questions-list").append("<h5>" + text + "</h5>")
-          $("div.questions-list").append("<p> Corect: " + correct + "</p>")
-          $("div.questions-list").append("<p> Incorect 1: " + incorrect_1 + "</p>")
-          $("div.questions-list").append("<p> Incorect 2: " + incorrect_2 + "</p>")
-          $("div.questions-list").append("<p> Incorect 3: " + incorrect_3 + "</p>")
+          var question_id = question['id'];
+          var text = question['question_text'];
+          var correct = question['correct_answer'];
+          var incorrect_1 = question['incorrect_answer_1'];
+          var incorrect_2 = question['incorrect_answer_2'];
+          var incorrect_3 = question['incorrect_answer_3'];
+          var source = question['source'];
+          $("div.questions-list").append("<h5>[ID " + question_id + "] " + text + "</h5>");
+          $("div.questions-list").append("<p> Corect: " + correct + "</p>");
+          $("div.questions-list").append("<p> Incorect 1: " + incorrect_1 + "</p>");
+          $("div.questions-list").append("<p> Incorect 2: " + incorrect_2 + "</p>");
+          $("div.questions-list").append("<p> Incorect 3: " + incorrect_3 + "</p>");
+          $("div.questions-list").append("<p> Referința: " + source + "</p>");
+          $("div.questions-list").append("<button class='delete btn btn-sm btn-danger mb-5' data-id='" + question_id + "'>Șterge întrebare [ID " + question_id + "]</button>");
         }
       }
     })
