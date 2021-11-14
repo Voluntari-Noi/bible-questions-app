@@ -72,10 +72,6 @@ $(document).ready(function() {
     });
   }
 
-  function init() {
-    // $("div.questions-list").append("<p>Lista de întrebări</p>");
-  }
-
   $("input#input-password").change(function() {
     window.password = $("input#input-password").val();
     window.get_questions_url = "http://localhost/questions-admin-scripts/get_questions.php?secret=" + window.password;
@@ -106,11 +102,13 @@ $(document).ready(function() {
       }
 
       if(data === "DELETED_ONE") {
-        alert("Question deleted successfully.");
+        console.log("Question deleted successfully.");
+        update_questions_list();
       }
 
       if(data === "DELETED_ALL") {
-        alert("All questions deleted successfully.");
+        console.log("All questions deleted successfully.");
+        update_questions_list();
       }
     })
     .fail(function() {
@@ -138,7 +136,8 @@ $(document).ready(function() {
       }
 
       if(data === "SUCCESS") {
-        alert("Yey. Thank you for your question.");
+        console.log("Yey. Thank you for your question.");
+        update_questions_list();
       }
     })
     .fail(function() {
@@ -147,7 +146,4 @@ $(document).ready(function() {
 
     event.preventDefault();
   });
-
-  // On page load
-  init();
 });
