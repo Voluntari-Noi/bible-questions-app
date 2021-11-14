@@ -1,6 +1,7 @@
 $(document).ready(function() {
   window.password = "placeholder";
   window.get_questions_url = "http://localhost/questions-admin-scripts/get_questions.php?secret=" + window.password;
+  window.add_question_url = "http://localhost/questions-admin-scripts/add_question.php?secret=" + window.password;
 
   function get_form_data() {
     // Get the data from form submission
@@ -9,6 +10,7 @@ $(document).ready(function() {
     var incorrect_answer_1 = $("input#input-incorrect-answer-1").val();
     var incorrect_answer_2 = $("input#input-incorrect-answer-2").val();
     var incorrect_answer_3 = $("input#input-incorrect-answer-3").val();
+    var source = $("input#input-source").val();
     var password = $("input#input-password").val();
 
     return {
@@ -17,7 +19,8 @@ $(document).ready(function() {
       'correct_answer': correct_answer,
       'incorrect_answer_1': incorrect_answer_1,
       'incorrect_answer_2': incorrect_answer_2,
-      'incorrect_answer_3': incorrect_answer_3
+      'incorrect_answer_3': incorrect_answer_3,
+      'source': source
     }
   }
 
@@ -70,18 +73,27 @@ $(document).ready(function() {
   $("input#input-password").change(function() {
     window.password = $("input#input-password").val();
     window.get_questions_url = "http://localhost/questions-admin-scripts/get_questions.php?secret=" + window.password;
+    window.add_question_url = "http://localhost/questions-admin-scripts/add_question.php?secret=" + window.password;
   });
 
   $("button#show-questions").on("click", function() {
     update_questions_list();
   });
 
-  $("#questions-form" ).submit(function(event) {
-    // On form submit
+  $("#questions-form").submit(function(event) {
+    // On form submit (add question)
     var form_data = get_form_data(); // Get the data as submitted by user
     var json_data = JSON.stringify(form_data); // Convert to JSON
 
     console.log(json_data);
+
+    var jqxhr = $.post(window.add_question_url, {'json_data': json_data})
+    .done(function(data) {
+      alert( "Data Loaded: " + data );
+    })
+    .fail(function() {
+      alert("Error on adding new question.");
+    });
 
     event.preventDefault();
   });
