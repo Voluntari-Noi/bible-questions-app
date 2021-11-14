@@ -1,0 +1,11 @@
+Install PHP
+-----------
+$ php --version
+Command 'php' not found ...
+
+$ sudo apt update
+
+$ sudo apt install php libapache2-mod-php
+
+$ php --version
+PHP 8.0.8 (cli) (built: Oct 26 2021 11:42:42) ( NTS )
