@@ -13,30 +13,35 @@
       <form>
         <div class="mb-3">
           <label for="input-question" class="form-label">Întrebarea</label>
-          <input type="text" class="form-control" id="input-question" aria-describedby="input-question-help">
+          <input type="text" class="form-control" id="input-question" aria-describedby="input-question-help" required>
           <div id="input-question-help" class="form-text">Exemplu: Care este prima carte a Bibliei?</div>
         </div>
         <div class="mb-3">
           <label for="input-correct-answer" class="form-label">Răspunsul corect</label>
-          <input type="text" class="form-control" id="input-correct-answer" aria-describedby="input-correct-answer">
+          <input type="text" class="form-control" id="input-correct-answer" aria-describedby="input-correct-answer" required>
           <div id="input-correct-answer" class="form-text">Exemplu: Geneza</div>
         </div>
         <div class="mb-3">
           <label for="input-incorrect-answer-1" class="form-label">Răspuns greșit 1</label>
-          <input type="text" class="form-control" id="input-incorrect-answer-1" aria-describedby="input-incorrect-answer-1">
+          <input type="text" class="form-control" id="input-incorrect-answer-1" aria-describedby="input-incorrect-answer-1" required>
           <div id="input-incorrect-answer-1" class="form-text">Exemplu: Exodul</div>
         </div>
         <div class="mb-3">
           <label for="input-incorrect-answer-2" class="form-label">Răspuns greșit 2</label>
-          <input type="text" class="form-control" id="input-incorrect-answer-2" aria-describedby="input-incorrect-answer-2">
+          <input type="text" class="form-control" id="input-incorrect-answer-2" aria-describedby="input-incorrect-answer-2" required>
           <div id="input-incorrect-answer-2" class="form-text">Exemplu: Luca</div>
         </div>
         <div class="mb-3">
           <label for="input-incorrect-answer-3" class="form-label">Răspuns greșit 3</label>
-          <input type="text" class="form-control" id="input-incorrect-answer-3" aria-describedby="input-incorrect-answer-3">
+          <input type="text" class="form-control" id="input-incorrect-answer-3" aria-describedby="input-incorrect-answer-3" required>
           <div id="input-incorrect-answer-3" class="form-text">Exemplu: Apocalipsa</div>
         </div>
-        <button type="submit" class="btn btn-primary">Trimite</button>
+        <div class="mb-3">
+          <label for="input-password" class="form-label">Parola</label>
+          <input type="password" class="form-control" id="input-password" aria-describedby="input-password" required>
+          <div id="input-password" class="form-text">În loc de login ca administrator, ca să nu mai implementăm sistem de conturi.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Adaugă întrebarea în aplicație</button>
       </form>
 
       <div class="questions mt-5">
