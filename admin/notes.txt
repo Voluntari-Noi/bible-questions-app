@@ -70,3 +70,6 @@ mysql> GRANT ALL PRIVILEGES ON db_bible_questions.* TO 'qadmin'@'localhost';
 Query OK, 0 rows affected (0,02 sec)
 
 mysql> FLUSH PRIVILEGES;
+
+Fatal error: Call to undefined function mysqli_connect()
+$ sudo apt install php-mysqli

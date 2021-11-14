@@ -1,6 +1,7 @@
 <?php
   header('Access-Control-Allow-Origin: *');
   require_once('config.php');
+  require_once('functions.php');
 
   $questions  = [
     array("Q1", "AC1", "I11", "I21", "I31"),
@@ -9,6 +10,8 @@
     array("Q4", "AC4", "I41", "I24", "I34"),
     array("Q5", "AC5", "I51", "I25", "I35"),
   ];
+
+  db_connect();
 
   if(isset($_GET['secret'])) {
     if($_GET['secret'] == $secret) {
