@@ -91,4 +91,10 @@ CREATE TABLE IF NOT EXISTS questions (
 To delete the table:
 mysql> DROP TABLE questions;
 
+Test insert:
+INSERT INTO questions (question_text, correct_answer, incorrect_answer_1, incorrect_answer_2, incorrect_answer_3, source)
+VALUES
+("Care a fost primul om?", "Adam", "Eva", "Cain", "Abel", "Geneza");
+
+
 
