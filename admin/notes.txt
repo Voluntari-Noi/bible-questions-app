@@ -92,9 +92,14 @@ To delete the table:
 mysql> DROP TABLE questions;
 
 Test insert:
-INSERT INTO questions (question_text, correct_answer, incorrect_answer_1, incorrect_answer_2, incorrect_answer_3, source)
+mysql> INSERT INTO questions (question_text, correct_answer, incorrect_answer_1, incorrect_answer_2, incorrect_answer_3, source)
 VALUES
 ("Care a fost primul om?", "Adam", "Eva", "Cain", "Abel", "Geneza");
 
-
-
+mysql> SELECT * FROM questions;
++----+------------------------+----------------+--------------------+--------------------+--------------------+--------+
+| id | question_text          | correct_answer | incorrect_answer_1 | incorrect_answer_2 | incorrect_answer_3 | source |
++----+------------------------+----------------+--------------------+--------------------+--------------------+--------+
+|  1 | Care a fost primul om? | Adam           | Eva                | Cain               | Abel               | Geneza |
++----+------------------------+----------------+--------------------+--------------------+--------------------+--------+
+1 row in set (0,00 sec)
