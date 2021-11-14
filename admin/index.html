@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Questions Admin</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Admin întrebări</h1>
+
+      <form>
+        <div class="mb-3">
+          <label for="input-question" class="form-label">Întrebarea</label>
+          <input type="text" class="form-control" id="input-question" aria-describedby="input-question-help">
+          <div id="input-question-help" class="form-text">Exemplu: Care este prima carte a Bibliei?</div>
+        </div>
+        <div class="mb-3">
+          <label for="input-correct-answer" class="form-label">Răspunsul corect</label>
+          <input type="text" class="form-control" id="input-correct-answer" aria-describedby="input-correct-answer">
+          <div id="input-correct-answer" class="form-text">Exemplu: Geneza</div>
+        </div>
+        <div class="mb-3">
+          <label for="input-incorrect-answer-1" class="form-label">Răspuns greșit 1</label>
+          <input type="text" class="form-control" id="input-incorrect-answer-1" aria-describedby="input-incorrect-answer-1">
+          <div id="input-incorrect-answer-1" class="form-text">Exemplu: Exodul</div>
+        </div>
+        <div class="mb-3">
+          <label for="input-incorrect-answer-2" class="form-label">Răspuns greșit 2</label>
+          <input type="text" class="form-control" id="input-incorrect-answer-2" aria-describedby="input-incorrect-answer-2">
+          <div id="input-incorrect-answer-2" class="form-text">Exemplu: Luca</div>
+        </div>
+        <div class="mb-3">
+          <label for="input-incorrect-answer-3" class="form-label">Răspuns greșit 3</label>
+          <input type="text" class="form-control" id="input-incorrect-answer-3" aria-describedby="input-incorrect-answer-3">
+          <div id="input-incorrect-answer-3" class="form-text">Exemplu: Apocalipsa</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Trimite</button>
+      </form>
+
+      <div class="questions">
+        <h1>Questions</h1>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
