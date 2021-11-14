@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  window.password = "placeholder";
+  window.get_questions_url = "http://localhost/questions-admin-scripts/get_questions.php?secret=" + window.password;
+
   function get_form_data() {
     // Get the data from form submission
     var question_text = $("input#input-question").val();
@@ -19,7 +22,7 @@ $(document).ready(function() {
   }
 
   function update_questions_list() {
-    var jqxhr = $.getJSON("http://localhost/questions-admin-scripts/get_questions.php?secret=demo", function(data) {
+    var jqxhr = $.getJSON(window.get_questions_url, function(data) {
       console.log(data);
       var validated = true;
 
@@ -34,6 +37,7 @@ $(document).ready(function() {
       }
 
       if(validated) {
+        $("div.questions-list").html("");
         var questions = data;
         for (item in questions) {
           console.log(questions[item]);
@@ -61,8 +65,16 @@ $(document).ready(function() {
 
   function init() {
     $("div.questions-list").append("<p>Lista de întrebări</p>");
-    update_questions_list();
   }
+
+  $("input#input-password").change(function() {
+    window.password = $("input#input-password").val();
+    window.get_questions_url = "http://localhost/questions-admin-scripts/get_questions.php?secret=" + window.password;
+  });
+
+  $("button#show-questions").on("click", function() {
+    update_questions_list();
+  });
 
   $("#questions-form" ).submit(function(event) {
     // On form submit
