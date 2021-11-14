@@ -1,6 +1,13 @@
 <?php
   header('Access-Control-Allow-Origin: *');
-  $data = "Hello World";
+  $questions  = [
+    array("Q1", "AC1", "I11", "I21", "I31"),
+    array("Q2", "AC2", "I21", "I22", "I32"),
+    array("Q3", "AC3", "I31", "I23", "I33"),
+    array("Q4", "AC4", "I41", "I24", "I34"),
+    array("Q5", "AC5", "I51", "I25", "I35"),
+  ];
+
   header('Content-Type: application/json; charset=utf-8');
-  echo json_encode($data);
+  echo json_encode($questions);
 ?>

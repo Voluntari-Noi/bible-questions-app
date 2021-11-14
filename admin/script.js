@@ -19,14 +19,27 @@ $(document).ready(function() {
   }
 
   function update_questions_list() {
-    var jqxhr = $.getJSON("http://localhost/questions-admin-scripts/get_questions.php", function() {
+    var jqxhr = $.getJSON("http://localhost/questions-admin-scripts/get_questions.php", function(data) {
       console.log( "success" );
-    })
-    .done(function() {
-      console.log( "second success" );
+      console.log(data);
+      var questions = data;
+      for (item in questions) {
+        console.log(questions[item]);
+        var question = questions[item];
+        var text = question[0];
+        var correct = question[1];
+        var incorrect_1 = question[2];
+        var incorrect_2 = question[3];
+        var incorrect_3 = question[4];
+        $("div.questions-list").append("<h5>" + text + "</h5>")
+        $("div.questions-list").append("<p> Corect: " + correct + "</p>")
+        $("div.questions-list").append("<p> Incorect 1: " + incorrect_1 + "</p>")
+        $("div.questions-list").append("<p> Incorect 2: " + incorrect_2 + "</p>")
+        $("div.questions-list").append("<p> Incorect 3: " + incorrect_3 + "</p>")
+      }
     })
     .fail(function() {
-      console.log( "error" );
+      alert("Error on trying to get the questions.");
     })
     .always(function() {
       console.log( "complete" );
