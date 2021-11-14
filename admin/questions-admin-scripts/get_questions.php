@@ -1,4 +1,5 @@
 <?php
+  header("cache-control: no-cache, no-store, must-revalidate");
   header('Access-Control-Allow-Origin: *');
   require_once('config.php');
   require_once('functions.php');
@@ -10,8 +11,7 @@
       $result = $conn -> query($sql);
       db_close();
 
-      $questions = mysqli_fetch_assoc($result);
-
+      $rows = [];
       while($r = mysqli_fetch_assoc($result)) {
         $rows[] = $r;
       }
