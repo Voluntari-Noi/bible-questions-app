@@ -19,23 +19,36 @@ $(document).ready(function() {
   }
 
   function update_questions_list() {
-    var jqxhr = $.getJSON("http://localhost/questions-admin-scripts/get_questions.php", function(data) {
-      console.log( "success" );
+    var jqxhr = $.getJSON("http://localhost/questions-admin-scripts/get_questions.php?secret=demo", function(data) {
       console.log(data);
-      var questions = data;
-      for (item in questions) {
-        console.log(questions[item]);
-        var question = questions[item];
-        var text = question[0];
-        var correct = question[1];
-        var incorrect_1 = question[2];
-        var incorrect_2 = question[3];
-        var incorrect_3 = question[4];
-        $("div.questions-list").append("<h5>" + text + "</h5>")
-        $("div.questions-list").append("<p> Corect: " + correct + "</p>")
-        $("div.questions-list").append("<p> Incorect 1: " + incorrect_1 + "</p>")
-        $("div.questions-list").append("<p> Incorect 2: " + incorrect_2 + "</p>")
-        $("div.questions-list").append("<p> Incorect 3: " + incorrect_3 + "</p>")
+      var validated = true;
+
+      if(data === "ERROR_MISSING") {
+        alert("Missing password in your request.");
+        validated = false;
+      }
+
+      if(data === "ERROR_INVALID") {
+        alert("Invalid password.");
+        validated = false;
+      }
+
+      if(validated) {
+        var questions = data;
+        for (item in questions) {
+          console.log(questions[item]);
+          var question = questions[item];
+          var text = question[0];
+          var correct = question[1];
+          var incorrect_1 = question[2];
+          var incorrect_2 = question[3];
+          var incorrect_3 = question[4];
+          $("div.questions-list").append("<h5>" + text + "</h5>")
+          $("div.questions-list").append("<p> Corect: " + correct + "</p>")
+          $("div.questions-list").append("<p> Incorect 1: " + incorrect_1 + "</p>")
+          $("div.questions-list").append("<p> Incorect 2: " + incorrect_2 + "</p>")
+          $("div.questions-list").append("<p> Incorect 3: " + incorrect_3 + "</p>")
+        }
       }
     })
     .fail(function() {
