@@ -9,3 +9,29 @@ $ sudo apt install php libapache2-mod-php
 
 $ php --version
 PHP 8.0.8 (cli) (built: Oct 26 2021 11:42:42) ( NTS )
+
+Hello World
+-----------
+
+$ sudo su -
+
+$ cd /var/www/html
+
+$ mkdir questions-admin-scripts
+
+$ cd questions-admin-scripts
+
+$ vim index.php
+
+Paste:
+
+<?php
+  echo 'Hello, World!';
+?>
+
+Save
+
+In browser, go to:
+
+http://localhost/questions-admin-scripts/index.php
+Hello, World!
