@@ -1,3 +1,3 @@
 $(document).ready(function() {
-  $("div.questions").append("<p>Questions here</p>");
+  $("div.questions-list").append("<p>Lista de întrebări</p>");
 });
