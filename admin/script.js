@@ -89,7 +89,19 @@ $(document).ready(function() {
 
     var jqxhr = $.post(window.add_question_url, {'json_data': json_data})
     .done(function(data) {
-      alert( "Data Loaded: " + data );
+      if(data === "ERROR_MISSING") {
+        alert("Missing password in your request.");
+        validated = false;
+      }
+
+      if(data === "ERROR_INVALID") {
+        alert("Invalid password.");
+        validated = false;
+      }
+
+      if(data === "SUCCESS") {
+        alert("Yey. Thank you for your question.");
+      }
     })
     .fail(function() {
       alert("Error on adding new question.");
