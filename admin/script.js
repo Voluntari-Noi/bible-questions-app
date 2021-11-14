@@ -32,12 +32,12 @@ $(document).ready(function() {
       var validated = true;
 
       if(data === "ERROR_MISSING") {
-        alert("Missing password in your request.");
+        alert("Lipsește parola din link.");
         validated = false;
       }
 
       if(data === "ERROR_INVALID") {
-        alert("Invalid password.");
+        alert("Parolă greșită. Mai încearcă.");
         validated = false;
       }
 
@@ -65,7 +65,7 @@ $(document).ready(function() {
       }
     })
     .fail(function() {
-      alert("Error on trying to get the questions.");
+      alert("Eroare la deschiderea întrebărilor.");
     })
     .always(function() {
       console.log( "complete" );
@@ -94,25 +94,25 @@ $(document).ready(function() {
       console.log(data);
 
       if(data === "ERROR_MISSING") {
-        alert("Missing password in your request.");
+        alert("Lipsește parola din link. Problemă de configurare.");
       }
 
       if(data === "ERROR_INVALID") {
-        alert("Invalid password.");
+        alert("Parolă greșită. Mai încearcă.");
       }
 
       if(data === "DELETED_ONE") {
-        console.log("Question deleted successfully.");
+        console.log("Întrebare ștearsă cu succes.");
         update_questions_list();
       }
 
       if(data === "DELETED_ALL") {
-        console.log("All questions deleted successfully.");
+        console.log("Întrebările au fost șterse.");
         update_questions_list();
       }
     })
     .fail(function() {
-      alert("Error on trying to delete.");
+      alert("Eroare când am încercat să șterg.");
     })
   });
 
@@ -126,22 +126,22 @@ $(document).ready(function() {
     var jqxhr = $.post(window.add_question_url, {'json_data': json_data})
     .done(function(data) {
       if(data === "ERROR_MISSING") {
-        alert("Missing password in your request.");
+        alert("Lipsește parola din link.");
         validated = false;
       }
 
       if(data === "ERROR_INVALID") {
-        alert("Invalid password.");
+        alert("Parolă greșită. Mai încearcă.");
         validated = false;
       }
 
       if(data === "SUCCESS") {
-        console.log("Yey. Thank you for your question.");
+        console.log("Mulțumiiiim.");
         update_questions_list();
       }
     })
     .fail(function() {
-      alert("Error on adding new question.");
+      alert("N-am putut adăuga întrebarea.");
     });
 
     event.preventDefault();
