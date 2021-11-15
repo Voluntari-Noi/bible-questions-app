@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  $("button.delete.all").hide(); // It exists, it works, but shhhh.
+
   $.ajaxSetup({ cache: false });
   window.password = "placeholder";
   window.get_questions_url = "http://localhost/questions-admin-scripts/get_questions.php?secret=" + window.password;
