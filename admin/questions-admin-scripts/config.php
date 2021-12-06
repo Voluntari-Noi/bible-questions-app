@@ -12,5 +12,8 @@
   global $db_password;
   $db_password = "strongPASSWORD#99";
 
+  global $db_token; // used only for GET
+  $db_token = "vgXMHHTrOL"; // this is a real value used now for test version
+
   global $conn;
 ?>
