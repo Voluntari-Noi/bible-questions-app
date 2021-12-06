@@ -98,34 +98,73 @@
       </div>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript">
       $("document").ready(function() {
         window.current_question = 0;
+        window.get_questions_url = "https://pentrucer.net/aplicatii/intrebari-biblice/admin/get_questions.php?secret=vgXMHHTrOL"; // TODO: is it safe? (the token will be used only for GET info from DB)
+        window.questions = [];
 
-        window.questions = [
-          {
-            'id': 1,
-            'text': "Care este prima întrebare din Biblie?",
-            'answer_a': "Oare a zis Dumnezeu...?",
-            'answer_b': "Unde ești?",
-            'answer_c': "Cine ți-a spus că ești gol?",
-            'answer_d': "Ce ai făcut?",
-            'correct_answer': 'answer_a'
-          },
-          {
-            'id': 2,
-            'text': "Câți ani a trăit Metusala?",
-            'answer_a': 966,
-            'answer_b': 696,
-            'answer_c': 996,
-            'answer_d': 969,
-            'correct_answer': 'answer_d'
-          }
-        ];
+        function get_questions_list_and_start() {
+          var jqxhr = $.getJSON(window.get_questions_url, function(data) {
+            console.log(data);
+            var validated = true;
+
+            if(data === "ERROR_MISSING") {
+              console.log("Lipsește parola din link.");
+              validated = false;
+            }
+
+            if(data === "ERROR_INVALID") {
+              console.log("Parolă greșită. Mai încearcă.");
+              validated = false;
+            }
+
+            if(validated) {
+              $("div.questions-list").html("");
+              window.questions = data;
+              console.log(window.questions);
+                // var question = questions[item];
+                // var question_id = question['id'];
+                // var text = question['question_text'];
+                // var correct = question['correct_answer'];
+                // var incorrect_1 = question['incorrect_answer_1'];
+                // var incorrect_2 = question['incorrect_answer_2'];
+                // var incorrect_3 = question['incorrect_answer_3'];
+                // var source = question['source'];
+              next_question();
+            }
+          })
+          .fail(function() {
+            console.log("Eroare la deschiderea întrebărilor.");
+          })
+          .always(function() {
+            console.log( "complete" );
+          });
+        }
+        // window.questions = [
+        //   {
+        //     'id': 1,
+        //     'text': "Care este prima întrebare din Biblie?",
+        //     'answer_a': "Oare a zis Dumnezeu...?",
+        //     'answer_b': "Unde ești?",
+        //     'answer_c': "Cine ți-a spus că ești gol?",
+        //     'answer_d': "Ce ai făcut?",
+        //     'correct_answer': 'answer_a'
+        //   },
+        //   {
+        //     'id': 2,
+        //     'text': "Câți ani a trăit Metusala?",
+        //     'answer_a': 966,
+        //     'answer_b': 696,
+        //     'answer_c': 996,
+        //     'answer_d': 969,
+        //     'correct_answer': 'answer_d'
+        //   }
+        // ];
 
         function next_question() {
           // choose next question
@@ -135,13 +174,12 @@
             window.current_question = 0;
           }
 
-          $("p#question-text").text(question.text);
-          $("a.answer_a").text(question.answer_a);
-          $("a.answer_b").text(question.answer_b);
-          $("a.answer_c").text(question.answer_c);
-          $("a.answer_d").text(question.answer_d);
-          $("a.answer").removeClass("correct");
-          $("a." + question.correct_answer).addClass("correct");
+          $("p#question-text").text(question.question_text);
+          $("a.answer_a").text(question.correct_answer);
+          $("a.answer_b").text(question.incorrect_answer_1);
+          $("a.answer_c").text(question.incorrect_answer_2);
+          $("a.answer_d").text(question.incorrect_answer_3);
+          $("a.answer_a").addClass("correct");
         }
 
         $("button#submit-answer").on("click", function() {
@@ -160,7 +198,7 @@
         });
 
         function start_game() {
-          next_question();
+          get_questions_list_and_start();
         }
 
         start_game();
