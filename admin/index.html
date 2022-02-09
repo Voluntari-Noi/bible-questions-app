@@ -1,65 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Admin întrebări</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container mt-5">
-      <h1>Admin întrebări</h1>
+        <h1>Admin întrebări</h1>
 
-      <form id="questions-form">
-        <div class="mb-3">
-          <label for="input-question" class="form-label">Întrebarea</label>
-          <input type="text" class="form-control" id="input-question" aria-describedby="input-question-help" required>
-          <div id="input-question-help" class="form-text">Exemplu: Care este prima întrebare din Biblie?</div>
-        </div>
-        <div class="mb-3">
-          <label for="input-correct-answer" class="form-label">Răspuns corect</label>
-          <input type="text" class="form-control" id="input-correct-answer" aria-describedby="input-correct-answer" required>
-          <div id="input-correct-answer" class="form-text">Exemplu: Oare a zis Dumnezeu...?</div>
-        </div>
-        <div class="mb-3">
-          <label for="input-incorrect-answer-1" class="form-label">Răspuns greșit (1)</label>
-          <input type="text" class="form-control" id="input-incorrect-answer-1" aria-describedby="input-incorrect-answer-1" required>
-          <div id="input-incorrect-answer-1" class="form-text">Exemplu: Unde eşti?</div>
-        </div>
-        <div class="mb-3">
-          <label for="input-incorrect-answer-2" class="form-label">Răspuns greșit (2)</label>
-          <input type="text" class="form-control" id="input-incorrect-answer-2" aria-describedby="input-incorrect-answer-2" required>
-          <div id="input-incorrect-answer-2" class="form-text">Exemplu: Cine ţi-a spus că eşti gol?</div>
-        </div>
-        <div class="mb-3">
-          <label for="input-incorrect-answer-3" class="form-label">Răspuns greșit (3)</label>
-          <input type="text" class="form-control" id="input-incorrect-answer-3" aria-describedby="input-incorrect-answer-3" required>
-          <div id="input-incorrect-answer-3" class="form-text">Exemplu: Ce ai făcut?</div>
-        </div>
-        <div class="mb-3">
-          <label for="input-source" class="form-label">Referință</label>
-          <input type="text" class="form-control" id="input-source" aria-describedby="input-source" required>
-          <div id="input-source" class="form-text">Exemplu: Geneza 3:1: Şarpele era mai şiret decât toate fiarele câmpului pe care le făcuse Domnul Dumnezeu. El a zis femeii: "Oare a zis Dumnezeu cu adevărat: "Să nu mâncaţi din toţi pomii din grădină"?" </div>
-        </div>
-        <div class="mb-3">
-          <label for="input-password" class="form-label">Parola</label>
-          <input type="password" class="form-control" id="input-password" aria-describedby="input-password" required>
-          <div id="input-password" class="form-text">Numai administratorii pot introduce sau vedea întrebările. Pentru simplificare există o singură parolă, care se schimbă din când în când. Dacă n-o știi, cere-o.</div>
-        </div>
-        <button type="submit" class="btn btn-primary">Adaugă întrebarea în baza de date</button>
-      </form>
+        <form id="questions-form">
+            <div class="mb-3">
+                <label for="input-question" class="form-label">Întrebarea</label>
+                <input type="text" class="form-control" id="input-question" aria-describedby="input-question-help" required>
+                <div id="input-question-help" class="form-text">Exemplu: Care este prima întrebare din Biblie?</div>
+            </div>
+            <div class="mb-3">
+                <label for="input-correct-answer" class="form-label">Răspuns corect</label>
+                <input type="text" class="form-control" id="input-correct-answer" aria-describedby="input-correct-answer" required>
+                <div id="input-correct-answer" class="form-text">Exemplu: Oare a zis Dumnezeu...?</div>
+            </div>
+            <div class="mb-3">
+                <label for="input-incorrect-answer-1" class="form-label">Răspuns greșit (1)</label>
+                <input type="text" class="form-control" id="input-incorrect-answer-1" aria-describedby="input-incorrect-answer-1" required>
+                <div id="input-incorrect-answer-1" class="form-text">Exemplu: Unde eşti?</div>
+            </div>
+            <div class="mb-3">
+                <label for="input-incorrect-answer-2" class="form-label">Răspuns greșit (2)</label>
+                <input type="text" class="form-control" id="input-incorrect-answer-2" aria-describedby="input-incorrect-answer-2" required>
+                <div id="input-incorrect-answer-2" class="form-text">Exemplu: Cine ţi-a spus că eşti gol?</div>
+            </div>
+            <div class="mb-3">
+                <label for="input-incorrect-answer-3" class="form-label">Răspuns greșit (3)</label>
+                <input type="text" class="form-control" id="input-incorrect-answer-3" aria-describedby="input-incorrect-answer-3" required>
+                <div id="input-incorrect-answer-3" class="form-text">Exemplu: Ce ai făcut?</div>
+            </div>
+            <div class="mb-3">
+                <label for="input-source" class="form-label">Referință</label>
+                <input type="text" class="form-control" id="input-source" aria-describedby="input-source" required>
+                <div id="input-source" class="form-text">Exemplu: Geneza 3:1: Şarpele era mai şiret decât toate fiarele câmpului pe care le făcuse Domnul Dumnezeu. El a zis femeii: "Oare a zis Dumnezeu cu adevărat: "Să nu mâncaţi din toţi pomii din grădină"?" </div>
+            </div>
+            <div class="mb-3">
+                <label for="input-password" class="form-label">Parola</label>
+                <input type="password" class="form-control" id="input-password" aria-describedby="input-password" required>
+                <div id="input-password" class="form-text">Numai administratorii pot introduce sau vedea întrebările. Pentru simplificare există o singură parolă, care se schimbă din când în când. Dacă n-o știi, cere-o.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Adaugă întrebarea în baza de date</button>
+        </form>
 
-      <div class="questions mt-5 mb-5">
-        <h1>Întrebări</h1>
-        <button id="show-questions" class="btn btn-primary">Actualizează lista</button>
-        <div class="questions-list mt-4">
+        <div class="questions mt-5 mb-5">
+            <h1>Întrebări</h1>
+            <button id="show-questions" class="btn btn-primary">Actualizează lista</button>
+            <div class="questions-list mt-4">
+            </div>
+            <button class="delete all btn btn-danger mb-5" data-id="ALL">Șterge TOATE întrebările</button>
         </div>
-        <button class="delete all btn btn-danger mb-5" data-id="ALL">Șterge TOATE întrebările</button>
-      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://pentrucer.net/aplicatii/intrebari-biblice/admin/get_token_script.php"></script>
+    <!--<script src="https://appboxstudios.com/software/intrebari-biblice/admin/get_token_script.php"></script>-->
     <script src="./script.js"></script>
-  </body>
+</body>
+
 </html>

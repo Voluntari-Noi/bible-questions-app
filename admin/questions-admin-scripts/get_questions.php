@@ -1,29 +1,41 @@
 <?php
-  header("cache-control: no-cache, no-store, must-revalidate");
-  header('Access-Control-Allow-Origin: *');
-  ini_set('display_errors', 1); // TODO remove later
-  require_once('config.php');
-  require_once('functions.php');
+header("cache-control: no-cache, no-store, must-revalidate");
+header('Access-Control-Allow-Origin: *');
+ini_set('display_errors', 1); // TODO remove later
+require_once('config.php');
+require_once('functions.php');
 
-  if(isset($_GET['secret'])) {
-    if($_GET['secret'] == $secret or $_GET['secret'] == $db_token) {
-      db_connect();
-      $sql ="SELECT * from questions ORDER BY id DESC";
-      $result = $conn -> query($sql);
-      db_close();
-
-      $rows = [];
-      while($r = mysqli_fetch_assoc($result)) {
-        $rows[] = $r;
+$getQuestions = function () {
+  global $conn, $seed;
+  try {
+    $errors = db_connect();
+    if ($errors === true) {
+      $exclude_sql = getExcludeIds();
+      $sorting_sql = "ORDER BY id DESC";
+      if (isset($_GET['limit']) && ($limit = intval($_GET['limit'])) > 0) {;
+        $sorting_sql = "ORDER BY RAND() LIMIT $limit;";
       }
-      $response = $rows;
+      $sql = "SELECT * from questions $exclude_sql $sorting_sql";
+      $result = $conn->query($sql);
+      db_close();
+      if ($result !== false) {
+        $rows = [];
+        while ($r = mysqli_fetch_assoc($result)) {
+          $rows[] = $r;
+        }
+        $response = array('status' => OK, 'next_token' => createToken($seed), 'response' => $rows);
+      } else {
+        $response = getResponse(QUERY_FAILED);
+      }
     } else {
-      $response = "ERROR_INVALID";
+      $response = getResponse(QUERY_FAILED, $errors);
     }
-  } else {
-    $response = "ERROR_MISSING";
+  } catch (Exception $x) {
+    $response = getResponse(SERVER_EXCEPTION, print_r($x, true));
   }
+  return $response;
+};
 
-  header('Content-Type: application/json; charset=utf-8');
-  echo json_encode($response);
-?>
+$response = validateRequest($getQuestions);
+header('Content-Type: application/json; charset=utf-8');
+echo json_encode($response);

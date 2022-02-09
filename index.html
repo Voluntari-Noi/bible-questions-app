@@ -1,210 +1,226 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css" />
 
     <title>Întrebări Biblice - Pentru Cer</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <section class="header container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Pentru Cer</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Pentru Cer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Meniu principal<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Școala Pentru Cer</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                Meniu principal
+                <span class="sr-only">(current)</span>
+              </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Școala Pentru Cer</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Alte aplicații
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Versete de memorat</a>
-                <a class="dropdown-item" href="#">Puzzle</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Întrebări Biblice</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Învață cu Noi</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Versete de memorat</a>
+                            <a class="dropdown-item" href="#">Puzzle</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Întrebări Biblice</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Învață cu Noi</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </section>
 
     <section class="application">
-      <div class="container app-container">
-        <div class="row">
-          <div class="col">
-            <h1 class="app-title">
-              <i class="fas fa-question-circle"></i>
-              Întrebări biblice
-            </h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="question">
-              <p class="info-text"> Fiecare întrebare este urmată de patru variante de răspuns, dintre care doar una este corectă.</p>
-              <p id="question-text"></p>
-              <div class="list-group" id="list-tab" role="tablist">
-                <a class="answer answer_a list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="A"></a>
-                <a class="answer answer_b list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="B"></a>
-                <a class="answer answer_c list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="C"></a>
-                <a class="answer answer_d list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="D"></a>
-              </div>
+        <div class="container app-container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="app-title">
+                        <i class="fas fa-question-circle"></i> Întrebări biblice
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="question">
+                        <p class="info-text">
+                            Fiecare întrebare este urmată de patru variante de răspuns, dintre care doar una este corectă.
+                        </p>
+                        <p id="question-text"></p>
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="answer answer_a list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="A"></a>
+                            <a class="answer answer_b list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="B"></a>
+                            <a class="answer answer_c list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="C"></a>
+                            <a class="answer answer_d list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="D"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <div class="app-controls">
-              <button type="button" class="btn btn-outline-secondary" id="reload-question">RĂSPUNDE MAI TÂRZIU
+            <div class="row">
+                <div class="col">
+                    <div class="app-controls">
+                        <button type="button" class="btn btn-outline-secondary" id="reload-question">
+                RĂSPUNDE MAI TÂRZIU
               </button>
-              <button type="button" class="btn btn-outline-primary float-right" id="submit-answer">TRIMITE RĂSPUNSUL
+                        <button type="button" class="btn btn-outline-primary float-right" id="submit-answer">
+                TRIMITE RĂSPUNSUL
               </button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <section class="footer container">
-      <div class="info">
-        <p class="text-center">Pentru mai multe aplicații educaționale te așteptăm aici: <a href="http://pentrucer.net/">pentrucer.net</a>. Te mai așteptăm.</p>
-      </div>
-      <div class="logo">
-        <a href="https://www.pentrucer.net">
-          <img src="images/logo-pentru-cer.png" alt="Pentru Cer" />
-        </a>
-      </div>
+        <div class="info">
+            <p class="text-center">
+                Pentru mai multe aplicații educaționale te așteptăm aici:
+                <a href="http://pentrucer.net/">pentrucer.net</a> . Te mai așteptăm.
+            </p>
+        </div>
+        <div class="logo">
+            <a href="https://www.pentrucer.net">
+                <img src="images/logo-pentru-cer.png" alt="Pentru Cer" />
+            </a>
+        </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://pentrucer.net/aplicatii/intrebari-biblice/admin/get_token_script.php"></script>
+    <!--<script src="https://appboxstudios.com/software/intrebari-biblice/admin/get_token_script.php"></script>-->
     <script type="text/javascript">
-      $("document").ready(function() {
-        window.current_question = 0;
-        window.get_questions_url = "https://pentrucer.net/aplicatii/intrebari-biblice/admin/get_questions.php?secret=vgXMHHTrOL"; // TODO: is it safe? (the token will be used only for GET info from DB)
-        window.questions = [];
+        //var baseUrl = 'https://appboxstudios.com/software/intrebari-biblice/admin'
+        var baseUrl = 'https://pentrucer.net/aplicatii/intrebari-biblice/admin'
+        window.answered_ids = []
+        $('document').ready(function() {
+            window.current_question = 0
+            window.get_questions_url =
+                baseUrl + '/get_questions.php?token=' + window.token
+            window.questions = []
 
-        function get_questions_list_and_start() {
-          var jqxhr = $.getJSON(window.get_questions_url, function(data) {
-            console.log(data);
-            var validated = true;
+            function get_questions_list_and_start() {
+                var extra_args =
+                    '&limit=3&exclude_ids=' + encodeURI(window.answered_ids.join(','))
+                var jqxhr = $.getJSON(
+                        window.get_questions_url + extra_args,
+                        function(data) {
+                            console.log(data)
+                            if (data.status == 0) {
+                                $('div.questions-list').html('')
+                                window.token = data.next_token
+                                window.questions = data.response
+                                    // var question = questions[item];
+                                    // var question_id = question['id'];
+                                    // var text = question['question_text'];
+                                    // var correct = question['correct_answer'];
+                                    // var incorrect_1 = question['incorrect_answer_1'];
+                                    // var incorrect_2 = question['incorrect_answer_2'];
+                                    // var incorrect_3 = question['incorrect_answer_3'];
+                                    // var source = question['source'];
+                                if (window.questions.length > 0) next_question()
+                            }
+                        },
+                    )
+                    .fail(function(data) {
+                        var error = data.responseJSON.error
+                        console.log('Eroare la deschiderea întrebărilor.', error)
+                    })
+                    .always(function(data) {
+                        console.log('complete')
+                    })
+            }
+            // window.questions = [
+            //   {
+            //     'id': 1,
+            //     'text': "Care este prima întrebare din Biblie?",
+            //     'answer_a': "Oare a zis Dumnezeu...?",
+            //     'answer_b': "Unde ești?",
+            //     'answer_c': "Cine ți-a spus că ești gol?",
+            //     'answer_d': "Ce ai făcut?",
+            //     'correct_answer': 'answer_a'
+            //   },
+            //   {
+            //     'id': 2,
+            //     'text': "Câți ani a trăit Metusala?",
+            //     'answer_a': 966,
+            //     'answer_b': 696,
+            //     'answer_c': 996,
+            //     'answer_d': 969,
+            //     'correct_answer': 'answer_d'
+            //   }
+            // ];
 
-            if(data === "ERROR_MISSING") {
-              console.log("Lipsește parola din link.");
-              validated = false;
+            function next_question() {
+                // choose next question
+                var question = window.questions[window.current_question]
+                console.log(
+                    'More questions?',
+                    window.questions.length,
+                    window.current_question,
+                    window.answered_ids.length,
+                )
+                if (window.questions.length <= window.current_question) {
+                    window.current_question = 0
+                    get_questions_list_and_start()
+                    return
+                }
+                window.current_question += 1
+                window.answered_ids.push(question.id)
+                console.log(question.id)
+                $('p#question-text').text(question.question_text)
+                $('a.answer_a').text(question.correct_answer)
+                $('a.answer_b').text(question.incorrect_answer_1)
+                $('a.answer_c').text(question.incorrect_answer_2)
+                $('a.answer_d').text(question.incorrect_answer_3)
+                $('a.answer_a').addClass('correct')
             }
 
-            if(data === "ERROR_INVALID") {
-              console.log("Parolă greșită. Mai încearcă.");
-              validated = false;
+            $('button#submit-answer').on('click', function() {
+                var selected_button = $('a.active')
+                var is_correct = $(selected_button[0]).hasClass('correct')
+                if (is_correct) {
+                    Swal.fire('🎉 Felicitări! ', 'Ai răspuns corect.')
+                    next_question()
+                } else {
+                    Swal.fire('Ai greșit!❌', 'Încearcă din nou.')
+                }
+            })
+
+            $('button#reload-question').on('click', function() {
+                next_question()
+            })
+
+            function start_game() {
+                get_questions_list_and_start()
             }
 
-            if(validated) {
-              $("div.questions-list").html("");
-              window.questions = data;
-              console.log(window.questions);
-                // var question = questions[item];
-                // var question_id = question['id'];
-                // var text = question['question_text'];
-                // var correct = question['correct_answer'];
-                // var incorrect_1 = question['incorrect_answer_1'];
-                // var incorrect_2 = question['incorrect_answer_2'];
-                // var incorrect_3 = question['incorrect_answer_3'];
-                // var source = question['source'];
-              next_question();
-            }
-          })
-          .fail(function() {
-            console.log("Eroare la deschiderea întrebărilor.");
-          })
-          .always(function() {
-            console.log( "complete" );
-          });
-        }
-        // window.questions = [
-        //   {
-        //     'id': 1,
-        //     'text': "Care este prima întrebare din Biblie?",
-        //     'answer_a': "Oare a zis Dumnezeu...?",
-        //     'answer_b': "Unde ești?",
-        //     'answer_c': "Cine ți-a spus că ești gol?",
-        //     'answer_d': "Ce ai făcut?",
-        //     'correct_answer': 'answer_a'
-        //   },
-        //   {
-        //     'id': 2,
-        //     'text': "Câți ani a trăit Metusala?",
-        //     'answer_a': 966,
-        //     'answer_b': 696,
-        //     'answer_c': 996,
-        //     'answer_d': 969,
-        //     'correct_answer': 'answer_d'
-        //   }
-        // ];
-
-        function next_question() {
-          // choose next question
-          var question = window.questions[window.current_question];
-          window.current_question += 1;
-          if (window.questions.length <= window.current_question) {
-            window.current_question = 0;
-          }
-
-          $("p#question-text").text(question.question_text);
-          $("a.answer_a").text(question.correct_answer);
-          $("a.answer_b").text(question.incorrect_answer_1);
-          $("a.answer_c").text(question.incorrect_answer_2);
-          $("a.answer_d").text(question.incorrect_answer_3);
-          $("a.answer_a").addClass("correct");
-        }
-
-        $("button#submit-answer").on("click", function() {
-          var selected_button = $("a.active");
-          var is_correct = $(selected_button[0]).hasClass("correct");
-          if (is_correct) {
-            Swal.fire("🎉 Felicitări! ", "Ai răspuns corect.");
-            next_question();
-          } else {
-            Swal.fire("Ai greșit!❌", "Încearcă din nou.");
-          }
-        });
-
-        $("button#reload-question").on("click", function() {
-          next_question();
-        });
-
-        function start_game() {
-          get_questions_list_and_start();
-        }
-
-        start_game();
-      });
-
+            start_game()
+        })
     </script>
+</body>
 
-  </body>
 </html>

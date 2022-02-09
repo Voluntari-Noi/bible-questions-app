@@ -1,32 +1,26 @@
 <?php
-  header('Access-Control-Allow-Origin: *');
-  require_once('config.php');
-  require_once('functions.php');
+header('Access-Control-Allow-Origin: *');
+require_once('config.php');
+require_once('functions.php');
 
-  if(isset($_GET['secret'])) {
-    if($_GET['secret'] == $secret) {
-      if(isset($_GET['id'])) {
-        $question_id = $_GET['id'];
-        if($question_id == "ALL") {
-          $sql ="DELETE FROM questions";
-          $response = "DELETED_ALL";
-        } else {
-          $sql ="DELETE FROM questions WHERE id='$question_id'";
-          $response = "DELETED_ONE";
-        }
-        db_connect();
-        $result = $conn -> query($sql);
-        db_close();
-      } else {
-        $response = "ERROR_MISSING_ID";
-      }
+$deleteQuestion = function () {
+  if (isset($_GET['id'])) {
+    $question_id = $_GET['id'];
+    $action = "";
+    if ($question_id == "ALL") {
+      $sql = "DELETE FROM questions";
+      $action = 'DELETED_ALL';
     } else {
-      $response = "ERROR_INVALID";
+      $sql = "DELETE FROM questions WHERE id='$question_id'";
+      $action = 'DELETED_ONE';
     }
+    $response = executeQuery($sql, $action);
   } else {
-    $response = "ERROR_MISSING";
+    $response = getResponse(INVALID_PARAMS, "Missing question id");
   }
+  return $response;
+};
 
-  header('Content-Type: application/json; charset=utf-8');
-  echo json_encode($response);
-?>
+$response = validateRequest($deleteQuestion, true);
+header('Content-Type: application/json; charset=utf-8');
+echo json_encode($response);
