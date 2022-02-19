@@ -1,115 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="icon" type="image/png" href="images/logo-va-100.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
     <title>Întrebări Biblice - Pentru Cer</title>
-</head>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-header">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <img src="./images/logo-va-100.png" class="logo" />
+          <h3 class="text-center">Întrebări biblice</h3>
+        </div>
+      </div>
 
-<body>
-    <section class="header container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Pentru Cer</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">
-                Meniu principal
-                <span class="sr-only">(current)</span>
-              </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Școala Pentru Cer</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Alte aplicații
-              </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Versete de memorat</a>
-                            <a class="dropdown-item" href="#">Puzzle</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Întrebări Biblice</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Învață cu Noi</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </section>
-
-    <section class="application">
-        <div class="container app-container">
+      <div class="row row-board">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div id="exercise-container">
             <div class="row">
-                <div class="col">
-                    <h1 class="app-title">
-                        <i class="fas fa-question-circle"></i> Întrebări biblice
-                    </h1>
+              <div class="col">
+                <div class="question">
+                  <p class="info-text">
+                    Fiecare întrebare este urmată de patru variante de răspuns, dintre care doar una este corectă.
+                  </p>
+                  <p id="question-text"></p>
+                  <div class="list-group" id="list-tab" role="tablist">
+                    <a class="answer answer_a list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="A"></a>
+                    <a class="answer answer_b list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="B"></a>
+                    <a class="answer answer_c list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="C"></a>
+                    <a class="answer answer_d list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="D"></a>
+                  </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="question">
-                        <p class="info-text">
-                            Fiecare întrebare este urmată de patru variante de răspuns, dintre care doar una este corectă.
-                        </p>
-                        <p id="question-text"></p>
-                        <div class="list-group" id="list-tab" role="tablist">
-                            <a class="answer answer_a list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="A"></a>
-                            <a class="answer answer_b list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="B"></a>
-                            <a class="answer answer_c list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="C"></a>
-                            <a class="answer answer_d list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="D"></a>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
 
             <div class="row">
-                <div class="col">
-                    <div class="app-controls">
-                        <button type="button" class="btn btn-outline-secondary" id="reload-question">
-                RĂSPUNDE MAI TÂRZIU
-              </button>
-                        <button type="button" class="btn btn-outline-primary float-right" id="submit-answer">
-                TRIMITE RĂSPUNSUL
-              </button>
-                    </div>
+              <div class="col">
+                <div class="app-controls">
+                  <button type="button" class="btn btn-outline-secondary" id="reload-question">
+                    RĂSPUNDE MAI TÂRZIU
+                  </button>
+                  <button type="button" class="btn btn-outline-primary float-right" id="submit-answer">
+                    TRIMITE RĂSPUNSUL
+                  </button>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section class="footer container">
-        <div class="info">
-            <p class="text-center">
-                Pentru mai multe aplicații educaționale te așteptăm aici:
-                <a href="http://pentrucer.net/">pentrucer.net</a> . Te mai așteptăm.
-            </p>
+      <div class="row row-footer">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p class="text-center">Aplicație dezvoltată de echipa de voluntari <a href="https://www.pentrucer.net">Pentru Cer</a></p>
         </div>
-        <div class="logo">
-            <a href="https://www.pentrucer.net">
-                <img src="images/logo-pentru-cer.png" alt="Pentru Cer" />
-            </a>
-        </div>
-    </section>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script src="https://pentrucer.net/aplicatii/intrebari-biblice/admin/get_token_script.php"></script>
     <!--<script src="https://appboxstudios.com/software/intrebari-biblice/admin/get_token_script.php"></script>-->
     <script type="text/javascript">
@@ -221,6 +186,5 @@
             start_game()
         })
     </script>
-</body>
-
+  </body>
 </html>
