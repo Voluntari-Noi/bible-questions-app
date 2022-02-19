@@ -35,10 +35,10 @@
                   </p>
                   <p id="question-text"></p>
                   <div class="list-group" id="list-tab" role="tablist">
-                    <a class="answer answer_a list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="A"></a>
-                    <a class="answer answer_b list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="B"></a>
-                    <a class="answer answer_c list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="C"></a>
-                    <a class="answer answer_d list-group-item list-group-item-action" data-toggle="list" href="#" role="tab" aria-controls="D"></a>
+                    <a class="answer answer_a list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab" aria-controls="A"></a>
+                    <a class="answer answer_b list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab" aria-controls="B"></a>
+                    <a class="answer answer_c list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab" aria-controls="C"></a>
+                    <a class="answer answer_d list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab" aria-controls="D"></a>
                   </div>
                 </div>
               </div>
@@ -155,7 +155,7 @@
             Swal.fire('🎉 Felicitări! ', 'Ai răspuns corect.');
             next_question();
           } else {
-            Swal.fire('Ai greșit!❌', 'Încearcă din nou.')
+            Swal.fire('Ai greșit!❌', 'Încearcă din nou.');
           }
         });
 
@@ -167,7 +167,7 @@
           get_questions_list_and_start();
         }
 
-        start_game()
+        start_game();
       });
     </script>
   </body>
