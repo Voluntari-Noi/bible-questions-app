@@ -78,113 +78,97 @@
     <script src="https://pentrucer.net/aplicatii/intrebari-biblice/admin/get_token_script.php"></script>
     <!--<script src="https://appboxstudios.com/software/intrebari-biblice/admin/get_token_script.php"></script>-->
     <script type="text/javascript">
-        //var baseUrl = 'https://appboxstudios.com/software/intrebari-biblice/admin'
-        var baseUrl = 'https://pentrucer.net/aplicatii/intrebari-biblice/admin'
-        window.answered_ids = []
-        $('document').ready(function() {
-            window.current_question = 0
-            window.get_questions_url =
-                baseUrl + '/get_questions.php?token=' + window.token
-            window.questions = []
+      //var baseUrl = 'https://appboxstudios.com/software/intrebari-biblice/admin'
+      var baseUrl = 'https://pentrucer.net/aplicatii/intrebari-biblice/admin';
+      window.answered_ids = [];
 
-            function get_questions_list_and_start() {
-                var extra_args =
-                    '&limit=3&exclude_ids=' + encodeURI(window.answered_ids.join(','))
-                var jqxhr = $.getJSON(
-                        window.get_questions_url + extra_args,
-                        function(data) {
-                            console.log(data)
-                            if (data.status == 0) {
-                                $('div.questions-list').html('')
-                                window.token = data.next_token
-                                window.questions = data.response
-                                    // var question = questions[item];
-                                    // var question_id = question['id'];
-                                    // var text = question['question_text'];
-                                    // var correct = question['correct_answer'];
-                                    // var incorrect_1 = question['incorrect_answer_1'];
-                                    // var incorrect_2 = question['incorrect_answer_2'];
-                                    // var incorrect_3 = question['incorrect_answer_3'];
-                                    // var source = question['source'];
-                                if (window.questions.length > 0) next_question()
-                            }
-                        },
-                    )
-                    .fail(function(data) {
-                        var error = data.responseJSON.error
-                        console.log('Eroare la deschiderea întrebărilor.', error)
-                    })
-                    .always(function(data) {
-                        console.log('complete')
-                    })
-            }
-            // window.questions = [
-            //   {
-            //     'id': 1,
-            //     'text': "Care este prima întrebare din Biblie?",
-            //     'answer_a': "Oare a zis Dumnezeu...?",
-            //     'answer_b': "Unde ești?",
-            //     'answer_c': "Cine ți-a spus că ești gol?",
-            //     'answer_d': "Ce ai făcut?",
-            //     'correct_answer': 'answer_a'
-            //   },
-            //   {
-            //     'id': 2,
-            //     'text': "Câți ani a trăit Metusala?",
-            //     'answer_a': 966,
-            //     'answer_b': 696,
-            //     'answer_c': 996,
-            //     'answer_d': 969,
-            //     'correct_answer': 'answer_d'
-            //   }
-            // ];
+      $('document').ready(function() {
+        window.current_question = 0;
+        window.get_questions_url = baseUrl + '/get_questions.php?token=' + window.token;
+        window.questions = [];
 
-            function next_question() {
-                // choose next question
-                var question = window.questions[window.current_question]
-                console.log(
-                    'More questions?',
-                    window.questions.length,
-                    window.current_question,
-                    window.answered_ids.length,
-                )
-                if (window.questions.length <= window.current_question) {
-                    window.current_question = 0
-                    get_questions_list_and_start()
-                    return
+        function get_questions_list_and_start() {
+          var extra_args = '&limit=3&exclude_ids=' + encodeURI(window.answered_ids.join(','));
+          var jqxhr = $.getJSON(
+            window.get_questions_url + extra_args,
+            function(data) {
+              console.log(data);
+              if (data.status == 0) {
+                $('div.questions-list').html('');
+                window.token = data.next_token;
+                window.questions = data.response;
+                // var question = questions[item];
+                // var question_id = question['id'];
+                // var text = question['question_text'];
+                // var correct = question['correct_answer'];
+                // var incorrect_1 = question['incorrect_answer_1'];
+                // var incorrect_2 = question['incorrect_answer_2'];
+                // var incorrect_3 = question['incorrect_answer_3'];
+                // var source = question['source'];
+
+                if (window.questions.length > 0) {
+                  next_question();
                 }
-                window.current_question += 1
-                window.answered_ids.push(question.id)
-                console.log(question.id)
-                $('p#question-text').text(question.question_text)
-                $('a.answer_a').text(question.correct_answer)
-                $('a.answer_b').text(question.incorrect_answer_1)
-                $('a.answer_c').text(question.incorrect_answer_2)
-                $('a.answer_d').text(question.incorrect_answer_3)
-                $('a.answer_a').addClass('correct')
-            }
+              }
+            },
+          )
+          .fail(function(data) {
+            var error = data.responseJSON.error;
+            console.log('Eroare la deschiderea întrebărilor.', error);
+          })
+          .always(function(data) {
+            console.log('complete');
+          })
+        }
 
-            $('button#submit-answer').on('click', function() {
-                var selected_button = $('a.active')
-                var is_correct = $(selected_button[0]).hasClass('correct')
-                if (is_correct) {
-                    Swal.fire('🎉 Felicitări! ', 'Ai răspuns corect.')
-                    next_question()
-                } else {
-                    Swal.fire('Ai greșit!❌', 'Încearcă din nou.')
-                }
-            })
+        function next_question() {
+          // choose next question
+          var question = window.questions[window.current_question];
+          console.log(
+            'More questions?',
+            window.questions.length,
+            window.current_question,
+            window.answered_ids.length,
+          );
 
-            $('button#reload-question').on('click', function() {
-                next_question()
-            })
+          if (window.questions.length <= window.current_question) {
+            window.current_question = 0;
+            get_questions_list_and_start();
+            return
+          }
 
-            function start_game() {
-                get_questions_list_and_start()
-            }
+          window.current_question += 1;
+          window.answered_ids.push(question.id);
+          console.log(question.id);
+          $('p#question-text').text(question.question_text);
+          $('a.answer_a').text(question.correct_answer);
+          $('a.answer_b').text(question.incorrect_answer_1);
+          $('a.answer_c').text(question.incorrect_answer_2);
+          $('a.answer_d').text(question.incorrect_answer_3);
+          $('a.answer_a').addClass('correct');
+        }
 
-            start_game()
-        })
+        $('button#submit-answer').on('click', function() {
+          var selected_button = $('a.active');
+          var is_correct = $(selected_button[0]).hasClass('correct');
+          if (is_correct) {
+            Swal.fire('🎉 Felicitări! ', 'Ai răspuns corect.');
+            next_question();
+          } else {
+            Swal.fire('Ai greșit!❌', 'Încearcă din nou.')
+          }
+        });
+
+        $('button#reload-question').on('click', function() {
+          next_question();
+        });
+
+        function start_game() {
+          get_questions_list_and_start();
+        }
+
+        start_game()
+      });
     </script>
   </body>
 </html>
