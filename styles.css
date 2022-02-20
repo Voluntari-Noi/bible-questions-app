@@ -6,12 +6,12 @@
  * #296eb4
  * #1789fc
  */
-@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 body {
   color: #111;
   background: #b1740f;
-  /* background-image: url('images/bg.png'); */
+  background-image: url('images/bg.png');
 }
 
 div.container {
@@ -24,11 +24,11 @@ div.row {
 }
 
 div.row.row-header {
-  background: #fdb833;
+  /* background: #fdb833; */
   color: white;
-  text-align: center;
-  /* background: rgb(29,69,67); */
-  /* background: linear-gradient(90deg, rgba(29,69,67,1) 0%, rgba(37,89,87,1) 35%, rgba(76,159,156,1) 100%); */
+  text-align: center;151515;
+  background: rgb(253,184,51);
+  background: linear-gradient(90deg, rgba(253,184,51,1) 0%, rgba(255,201,98,1) 48%, rgba(255,181,38,1) 100%);
 }
 
 div.row.row-header h3 {
@@ -37,7 +37,7 @@ div.row.row-header h3 {
   position: relative;
   top: 5px;
   font-size: 40px;
-  font-family: 'Syne Mono', monospace;
+  font-family: 'Great Vibes', cursive;
 }
 
 @media screen and (max-width: 400px) {
@@ -70,20 +70,15 @@ div.row.row-header img.logo {
   margin-right: 10px;
 }
 
-div.row.row-user {
-  background: #ffe787;
-  color: #151515;
-  /* background: rgb(235,182,52); */
-  /* background: linear-gradient(90deg, rgba(235,182,52,1) 0%, rgba(247,197,72,1) 35%, rgba(231,208,152,1) 100%); */
-}
-
 div.row.row-board {
   background: white;
 }
 
 div.row.row-footer {
-  background: #296eb4;
+  /* background: #296eb4; */
   color: white;
+  background: rgb(41,110,180);
+  background: linear-gradient(90deg, rgba(41,110,180,1) 0%, rgba(74,149,224,1) 56%, rgba(31,102,173,1) 100%);
 }
 
 div.row.row-footer a {
