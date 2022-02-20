@@ -31,7 +31,7 @@ div.row {
 
 div.row.row-header {
   /* background: #fdb833; */
-  color: white;
+  color: #111;
   text-align: center;151515;
   background: rgb(253,184,51);
   background: linear-gradient(90deg, rgba(253,184,51,1) 0%, rgba(255,201,98,1) 48%, rgba(255,181,38,1) 100%);
@@ -222,8 +222,8 @@ li#info-reset span {
 }
 
 p.text-hint {
-  background-color: #b1740f;
-  color: white;
+  background-color: #ffd07b;
+  color: #111;
   padding: 10px;
   margin-top: 10px;
 }
@@ -252,5 +252,9 @@ div.selected-books span.book {
 
 .show-wrong {
   color: white !important;
-  background: #C77966 !important;
+  background: #df6b4f !important;
+}
+
+p#question-text {
+  font-size: 1.3em;
 }
