@@ -5,6 +5,12 @@
  * #fdb833
  * #296eb4
  * #1789fc
+ *
+ * Other
+ * #7FBD6A
+ * #C7B606
+ * #C77966
+ * #BD0697
  */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
@@ -237,4 +243,14 @@ div.selected-books span.book {
   border-radius: 5px;
   padding: 10px;
   margin-right: 7px;
+}
+
+.show-correct {
+  color: white !important;
+  background: #7FBD6A !important;
+}
+
+.show-wrong {
+  color: white !important;
+  background: #C77966 !important;
 }

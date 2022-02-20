@@ -42,6 +42,19 @@
               </div>
             </div>
           </div>
+            <div class="hint">
+              <p class="text-hint" style="display:none">TODO afișează aici referința</p>
+              <button class="btn btn-warning">
+                <i class="fa fa-question-circle"></i>
+                Ajutor
+              </button>
+            </div>
+            <div class="next-exercise">
+              <button class="btn btn-success" style="display:none;">
+                <i class="fa fa-play-circle"></i>
+                Următorul exercițiu
+              </button>
+            </div>
         </div>
       </div>
 
@@ -81,15 +94,6 @@
                 $('div.questions-list').html('');
                 window.token = data.next_token;
                 window.questions = data.response;
-                // var question = questions[item];
-                // var question_id = question['id'];
-                // var text = question['question_text'];
-                // var correct = question['correct_answer'];
-                // var incorrect_1 = question['incorrect_answer_1'];
-                // var incorrect_2 = question['incorrect_answer_2'];
-                // var incorrect_3 = question['incorrect_answer_3'];
-                // var source = question['source'];
-
                 if (window.questions.length > 0) {
                   next_question();
                 }
@@ -106,6 +110,13 @@
         }
 
         function next_question() {
+          $("div.next-exercise button").hide();
+          $('div.hint button').show();
+          $('div.hint p').hide();
+          $('.answer.show-correct').removeClass('show-correct');
+          $('.answer.show-wrong').removeClass('show-wrong');
+          $('.answer.active').removeClass('active');
+
           // choose next question
           var question = window.questions[window.current_question];
           console.log(
@@ -132,15 +143,27 @@
           $('a.answer_a').addClass('correct');
         }
 
-        $('.answer').on('click', function() {
+        $('.answer').on('click', function(evt) {
+          $('div.hint button').hide();
+
           var selected_button = $('a.active');
           var is_correct = $(selected_button[0]).hasClass('correct');
+
           if (is_correct) {
-            alert("Corect");
-            next_question();
+            $(selected_button[0]).addClass('show-correct');
           } else {
-            alert("Gresit");
+            $(selected_button[0]).addClass('show-wrong');
+            $(".answer.correct").addClass('show-correct');
           }
+          $("div.next-exercise button").show();
+        });
+
+        $('div.hint button').on('click', function() {
+          $('div.hint p').show();
+        });
+
+        $("div.next-exercise button").on('click', function() {
+          next_question();
         });
 
         function start_game() {
