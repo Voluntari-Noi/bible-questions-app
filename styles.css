@@ -258,3 +258,8 @@ div.selected-books span.book {
 p#question-text {
   font-size: 1.3em;
 }
+
+div.spinner-border {
+  margin-left: 10px;
+  color: #ddd;
+}
