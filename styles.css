@@ -5,27 +5,18 @@
  * #fdb833
  * #296eb4
  * #1789fc
- *
- * Colors: https://coolors.co/7c6c77-aaa694-d1d0a3-ebf8b8-ffe787
- * #7c6c77
- * #aaa694
- * #ebf8b8
- * #d1d0a3
- * #ffe787  #e4aa1a
- *
- * #151515
  */
 @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 
 body {
-  color: #151515;
-  background: #7c6c77;
-  background-image: url('images/bg.png');
+  color: #111;
+  background: #b1740f;
+  /* background-image: url('images/bg.png'); */
 }
 
 div.container {
-  -webkit-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.41);
-  box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.41);
+  -webkit-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.21);
+  box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.21);
 }
 
 div.row {
@@ -33,7 +24,7 @@ div.row {
 }
 
 div.row.row-header {
-  background: #aaa694;
+  background: #fdb833;
   color: white;
   text-align: center;
   /* background: rgb(29,69,67); */
@@ -91,7 +82,7 @@ div.row.row-board {
 }
 
 div.row.row-footer {
-  background: #d1d0a3;
+  background: #296eb4;
   color: white;
 }
 
@@ -230,7 +221,7 @@ li#info-reset span {
 }
 
 p.text-hint {
-  background-color: #7c6c77;
+  background-color: #b1740f;
   color: white;
   padding: 10px;
   margin-top: 10px;
