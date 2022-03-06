@@ -23,7 +23,7 @@ $getQuestions = function () {
         while ($r = mysqli_fetch_assoc($result)) {
           $rows[] = $r;
         }
-        if(count($rows)>0){        
+        if(count($rows)>0){
           $response = array('status' => OK, 'next_token' => createToken($seed), 'response' => $rows);
         } else {
           $response = getResponse(QUERY_NO_RESULTS);

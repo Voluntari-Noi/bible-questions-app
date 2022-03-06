@@ -125,6 +125,10 @@
                 if (window.questions.length > 0) {
                   next_question();
                 }
+              } else {
+                if(data.status === 31) {
+                  $("div.row.row-board").html("<h2>Felicitări!</h2> <p>Ai parcurs toate întrebările.</p>");
+                }
               }
             },
           )
