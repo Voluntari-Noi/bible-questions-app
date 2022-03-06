@@ -24,6 +24,7 @@ define("INVALID_PARAMS", 20);
 define('MISSING_PASSWORD', 21);
 define("WRONG_PASSWORD", 22);
 define("QUERY_FAILED", 30);
+define("QUERY_NO_RESULTS", 31);
 define("SERVER_EXCEPTION", 99);
 global $default_errors;
 $default_errors = array(
@@ -33,5 +34,6 @@ $default_errors = array(
   WRONG_PASSWORD => "Wrong password",
   MISSING_PASSWORD => "Missing password",
   QUERY_FAILED => "Query failed",
+  QUERY_NO_RESULTS => "Query returned no results",
   SERVER_EXCEPTION => "Server exception"
 );
