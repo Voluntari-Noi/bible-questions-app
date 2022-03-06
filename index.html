@@ -213,6 +213,7 @@
 
           if (is_correct) {
             $(selected_button[0]).addClass('show-correct');
+            $('div.hint p').show();
           } else {
             $(selected_button[0]).addClass('show-wrong');
             $(".answer.correct").addClass('show-correct');
