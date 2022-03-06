@@ -25,7 +25,7 @@ $('document').ready(function() {
     var jqxhr = $.getJSON(
       window.get_questions_url + extra_args,
       function(data) {
-        console.log(data);
+        // console.log(data);
         if (data.status == 0) {
           $('div.questions-list').html('');
           window.token = data.next_token;
@@ -63,12 +63,12 @@ $('document').ready(function() {
 
     // choose next question
     var question = window.questions[window.current_question];
-    console.log(
-      'More questions?',
-      window.questions.length,
-      window.current_question,
-      window.answered_ids.length,
-    );
+    // console.log(
+    //   'More questions?',
+    //   window.questions.length,
+    //   window.current_question,
+    //   window.answered_ids.length,
+    // );
 
     if (window.questions.length <= window.current_question) {
       window.current_question = 0;
@@ -78,7 +78,7 @@ $('document').ready(function() {
 
     window.current_question += 1;
     window.answered_ids.push(question.id);
-    console.log(question.id);
+    // console.log(question.id);
     $('p#question-text').text(question.question_text);
 
     var all_answers = [
