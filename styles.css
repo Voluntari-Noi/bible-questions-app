@@ -20,7 +20,7 @@ body {
   background-image: url('images/bg.png');
 }
 
-div.container {
+div.container.board {
   -webkit-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.21);
   box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.21);
 }
@@ -262,4 +262,12 @@ p#question-text {
 div.spinner-border {
   margin-left: 10px;
   color: #ddd;
+}
+
+div.show-more {
+  display: flex;
+}
+
+div.show-more button {
+  margin-left: auto;
 }

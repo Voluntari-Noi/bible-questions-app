@@ -16,7 +16,7 @@
     <title>Întrebări Biblice - Pentru Cer</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container board">
       <div class="row row-header">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h3 class="text-center">Întrebări biblice</h3>
@@ -64,10 +64,18 @@
           </div>
         </div>
       </div>
-
-      <div class="row row-footer">
+      <div class="row row-footer" style="display: none;">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <p class="text-center">Aplicație dezvoltată de echipa de voluntari <a href="https://www.pentrucer.net">Pentru Cer</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row row-more">
+        <div class="show-more">
+          <button class="btn btn-more float-right pull-right">
+            <i class="fa fa-smile"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -220,6 +228,10 @@
 
         $("div.next-exercise button").on('click', function() {
           next_question();
+        });
+
+        $("button.btn-more").on('click', function() {
+          $("div.row-footer").toggle();
         });
 
         function start_game() {
